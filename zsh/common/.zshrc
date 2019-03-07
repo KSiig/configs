@@ -97,5 +97,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate $HOME/.zshrc"
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
 alias .='source'
-. .bash_aliases
-. .zcustom
+. ~/.bash_aliases
+. ~/.zcustom
