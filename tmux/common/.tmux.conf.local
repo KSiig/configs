@@ -292,3 +292,18 @@ bind C-a send-prefix
 
 # move status line to top
 set -g status-position top
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+set -g @tpm_plugins '           \
+  tmux-plugins/tpm              \
+  tmux-plugins/tmux-sensible    \
+  tmux-plugins/tmux-resurrect   \
+  tmux-plugins/tmux-sidebar     \
+  '
+
+run-shell ~/.tmux/plugins/tmux-sidebar/sidebar.tmux
+run -b '~/.tmux/plugins/tpm/tpm'
