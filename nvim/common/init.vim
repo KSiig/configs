@@ -33,12 +33,13 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 " Formater
 Plug 'Chiel92/vim-autoformat'
-call plug#end()
-
 Plug 'sheerun/vim-polyglot'
-
-filetype plugin indent on
-
+" K8s
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'c9s/helper.vim'
+Plug 'c9s/treemenu.vim'
+Plug 'c9s/vikube.vim'
+call plug#end()
 
 " colorscheme
 let base16colorspace=256
