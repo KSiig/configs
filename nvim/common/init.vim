@@ -39,6 +39,14 @@ Plug 'andrewstuart/vim-kubernetes'
 Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
+
+" Tab edit
+Plug 'gcmt/taboo.vim'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " colorscheme
@@ -109,3 +117,5 @@ let airline#extensions#ale#warning_symbol = 'W:'
 autocmd vimenter * NERDTree
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:deoplete#enable_at_startup = 1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * wincmd p
