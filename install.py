@@ -1,4 +1,4 @@
 import os
 
-os.system('apt update; apt install zsh -y')
+os.system('sudo apt update; sudo apt install zsh -y')
 os.system('chsh -s $(which zsh)')
