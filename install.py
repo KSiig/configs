@@ -15,4 +15,6 @@ os.system('ln -s ~/.oh-my-zsh/themes/spaceship-prompt/spaceship.zsh-theme ~/.oh-
 
 # Setting up symlinks to config folder
 os.system('find . -maxdepth 1 -type f -name ".z*" -exec rm {} \;')
-os.system('ln -s ' + dir + '/zsh/common/* ~/')
+os.system('ln -s ~/configs/zsh/common/.* ~/')
+os.system('cd ~')
+print (os.popen('pwd').read())
