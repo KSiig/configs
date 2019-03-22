@@ -1,4 +1,5 @@
 import os
 
-os.system('sudo apt update; sudo apt install zsh -y')
-os.system('chsh -s $(which zsh)')
+dir = os.popen('pwd').read()
+
+os.system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"')
