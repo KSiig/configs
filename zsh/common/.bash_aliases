@@ -6,13 +6,13 @@ alias ......="cd ../../../../.."
 alias l='ls -l'
 alias ll='ls -la'
 
-if command -v kubectl
+if hash > /dev/null kubectl
 then
 	alias kc='kubectl'
 	alias helm='sudo helm'
 fi
 
-if command -v tmux
+if hash > /dev/null tmux
 then
 	alias tmux='tmux -f $HOME/.tmux.conf'
 	alias tmuxs='tmux-session save'
