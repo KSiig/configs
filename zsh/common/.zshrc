@@ -64,6 +64,10 @@ ZSH_THEME="amuse"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  256color
+  alias-tips
+  careful_rm
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
