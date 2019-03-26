@@ -5,6 +5,8 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias l='ls -l'
 alias ll='ls -la'
+alias weather='curl wttr.in'
+alias showip='curl ifconfig.io'
 
 if hash > /dev/null kubectl
 then
