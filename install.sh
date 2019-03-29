@@ -8,7 +8,7 @@ if hash brew >> /dev/null; then pk="brew"; fi
 set -e
 
 # Make sure system is updated
-if [ $pk == "apt" ] 
+if [ ${$pk} == "apt" ] 
 then
     sudo $pk update && sudo $pk upgrade -y
 elif [ $pk == "brew" ]
