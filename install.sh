@@ -20,4 +20,4 @@ fi
 
 chsh -s $(which zsh)
 
-sh -c "$(https://raw.githubusercontent.com/KasperSiig/oh-my-zsh/master/tools/install.sh)"'
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/KasperSiig/oh-my-zsh/master/tools/install.sh)"'
