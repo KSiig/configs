@@ -1,26 +1,26 @@
 #!/bin/bash
 
 # Check what package manager is being used
-if hash apt > /dev/null; then pk="apt"; fi
-if hash brew > /dev/null; then pk="brew"; fi
+if hash apt >> /dev/null; then pk="apt"; fi
+if hash brew >> /dev/null; then pk="brew"; fi
 
 # The script will exit on error
 set -e
 
 # Make sure system is updated
-if $pk -eq "apt" 
+if [ $pk == "apt" ] 
 then
     sudo $pk update && sudo $pk upgrade -y
-elif $pk -eq "brew"
+elif [ $pk == "brew" ]
 then
     $pk update && $pk upgrade
 fi
 
 # Install zsh
-if $pk -eq "apt" 
+if [ $pk == "apt" ]
 then
     sudo $pk install zsh -y
-elif $pk -eq "brew"
+elif [ $pk == "brew" ]
 then
     $pk install zsh
 fi
