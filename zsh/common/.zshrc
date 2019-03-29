@@ -103,3 +103,5 @@ source $ZSH/oh-my-zsh.sh
 alias .='source'
 if [ $HOME/.bash_aliases ]; then . $HOME/.bash_aliases; fi
 if [ $HOME/.zcustom ]; then . $HOME/.zcustom; fi
+
+eval $(thefuck --alias)
