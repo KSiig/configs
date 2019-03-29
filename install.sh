@@ -8,22 +8,21 @@ if hash brew >> /dev/null; then pk="brew"; fi
 set -e
 
 # Make sure system is updated
-apt="apt"
-if [ $pk == $apt ] 
+if [ "$pk" == "apt" ] 
 then
-    sudo $pk update && sudo $pk upgrade -y
-elif [ $pk == "brew" ]
+    sudo "$pk" update && sudo "$pk" upgrade -y
+elif [ "$pk" == "brew" ]
 then
-    $pk update && $pk upgrade
+    "$pk" update && "$pk" upgrade
 fi
 
 # Install zsh
-if [ $pk == "apt" ]
+if [ "$pk" == "apt" ]
 then
-    sudo $pk install zsh -y
-elif [ $pk == "brew" ]
+    sudo "$pk" install zsh -y
+elif [ "$pk" == "brew" ]
 then
-    $pk install zsh
+    "$pk" install zsh
 fi
 
 chsh -s $(which zsh)
