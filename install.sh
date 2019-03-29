@@ -8,7 +8,13 @@ if hash brew > /dev/null; then pk="brew"; fi
 set -e
 
 # Make sure system is updated
-$pk update && $pk upgrade
+if $pk == "apt" 
+then
+    sudo $pk update && sudo $pk upgrade -y
+elif $pk == "brew"
+then
+    $pk update && $pk upgrade
+fi
 
 # Install zsh
 if $pk == "apt" 
