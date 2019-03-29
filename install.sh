@@ -15,6 +15,7 @@ if $pk == "apt"
 then
     sudo $pk install zsh -y
 elif $pk == "brew"
+then
     $pk install zsh
 fi
 
