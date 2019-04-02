@@ -10,8 +10,8 @@ alias showip='curl ifconfig.io'
 
 if hash > /dev/null kubectl
 then
-	alias kc='kubectl'
 	alias helm='sudo helm'
+    alias kw='watch -n 0.5 "kubectl config current-context; echo ''; kubectl config view | grep namespace; echo ''; kubectl get namespace,node,ingress,pod,svc,job,cronjob,deployment,rs,pv,pvc,secret,ep -o wide"'
 fi
 
 if hash > /dev/null tmux

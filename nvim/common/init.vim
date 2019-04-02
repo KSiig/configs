@@ -33,7 +33,7 @@ Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 " Formater
 Plug 'Chiel92/vim-autoformat'
-Plug 'sheerun/vim-polyglot'
+Plug 'ksiig/vim-polyglot'
 " K8s
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'c9s/helper.vim'

@@ -66,20 +66,11 @@ plugins=(
   git
   alias-tips
   careful_rm
-  zsh_reload
-  z
-  wd
   vi-mode
-  vagrant
   tmux
   systemadmin
-  npm
-  ng
-  lol
-  kubectl
   helm
   docker
-  command-not-found
   zsh-syntax-highlighting
 )
 
@@ -116,5 +107,8 @@ source $ZSH/oh-my-zsh.sh
 alias .='source'
 if [ $HOME/.bash_aliases ]; then . $HOME/.bash_aliases; fi
 if [ $HOME/.zcustom ]; then . $HOME/.zcustom; fi
+if [ $HOME/.kubectl_aliases ]; then . $HOME/.kubectl_aliases; fi
+
 
 eval $(thefuck --alias)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
