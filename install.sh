@@ -30,3 +30,7 @@ chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/KSiig/oh-my-zsh/master/tools/install.sh)"
 
 git clone https://github.com/KSiig/configs ~/configs
+find ~/ -maxdepth 1 -type f -name ".z*" -exec rm {} \;
+find ~/ -maxdepth 1 -type f -name ".bash_alias*" -exec rm {} \;
+ln -s ~/configs/zsh/common/.* ~/
+touch ~/.zcustom
