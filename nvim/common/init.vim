@@ -1,121 +1,94 @@
-" Configurations Part
-" UI configuration
+set nocompatible
+" Plugin Configuration
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Advanced File Explorer
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Provides Syntax Highlighting
+Plug 'ksiig/vim-polyglot'
+
+" Powerline at Bottom
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Set Dracula as theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Deoplete for Autocompletion
+Plug 'Shougo/deoplete.nvim', { 'on': '<Plug>deoplete' }
+
+" Visualizes Tab Indents
+Plug 'Yggdroot/indentLine'
+
+" Adds Extra Support for File Searching
+Plug 'ctrlpvim/ctrlp.vim', { 'on': '<Plug>CtrlP' }
+
+" Automatically Creates Pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Rainbow Parenthases
+Plug 'luochen1990/rainbow'
+
+" Git Wrapper
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+" UI Configuration
 syntax on
 syntax enable
 
-set tabstop=4
-set softtabstop=0 expandtab
-set shiftwidth=2 smarttab
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'ervandew/supertab'
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" UI related
-Plug 'chriskempson/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Better Visual Guide
-Plug 'Yggdroot/indentLine'
-" syntax check
-Plug 'w0rp/ale'
-" Autocomplete
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
-" Formater
-Plug 'Chiel92/vim-autoformat'
-Plug 'ksiig/vim-polyglot'
-" K8s
-Plug 'andrewstuart/vim-kubernetes'
-Plug 'c9s/helper.vim'
-Plug 'c9s/treemenu.vim'
-Plug 'c9s/vikube.vim'
-
-" Tab edit
-Plug 'gcmt/taboo.vim'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'airblade/vim-gitgutter'
-call plug#end()
-
-" colorscheme
-let base16colorspace=256
-colorscheme base16-gruvbox-dark-hard
-set background=dark
-" True Color Support if it's avaiable in terminal
+" GUI Colors Configuration
 if has("termguicolors")
     set termguicolors
 endif
 if has("gui_running")
   set guicursor=n-v-c-sm:block,i-ci-ve:block,r-cr-o:blocks
 endif
+
+colorscheme dracula
+
+" Basic Vim Configuration
+let mapleader = " "
 set number
-set relativenumber
-set hidden
-set mouse=a
-set noshowmode
-set noshowmatch
-set nolazyredraw
-" Turn off backup
+
+" Turn Off Backup
 set nobackup
 set noswapfile
 set nowritebackup
-" Search configuration
+
+" Search Configuration
 set ignorecase                    " ignore case when searching
 set smartcase                     " turn on smartcase
-" Tab and Indent configuration
-set expandtab
+
+" Tab and Indent Configuration
 set tabstop=4
-set shiftwidth=4
-" vim-autoformat
-noremap <F3> :Autoformat<CR>
-" NCM2
-augroup NCM2
-  autocmd!
-  " enable ncm2 for all buffers
-  autocmd BufEnter * call ncm2#enable_for_buffer()
-  " :help Ncm2PopupOpen for more information
-  set completeopt=noinsert,menuone,noselect
-  " When the <Enter> key is pressed while the popup menu is visible, it only
-  " hides the menu. Use this mapping to close the menu and also start a new line.
-  inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-  " uncomment this block if you use vimtex for LaTex
-  " autocmd Filetype tex call ncm2#register_source({
-  "           \ 'name': 'vimtex',
-  "           \ 'priority': 8,
-  "           \ 'scope': ['tex'],
-  "           \ 'mark': 'tex',
-  "           \ 'word_pattern': '\w+',
-  "           \ 'complete_pattern': g:vimtex#re#ncm2,
-  "           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-  "           \ })
-augroup END
-" Ale
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8']}
-" Airline
-let g:airline_left_sep  = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#ale#enabled = 1
-let airline#extensions#ale#error_symbol = 'E:'
-let airline#extensions#ale#warning_symbol = 'W:'
-autocmd vimenter * NERDTree
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:deoplete#enable_at_startup = 1
+set softtabstop=0 expandtab
+set shiftwidth=2 smarttab
+
+" Leader Configurations
+nnoremap <Leader>w  :w<CR>
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>f  :NERDTreeToggle<CR><C-W><C-L>
+nnoremap <Leader>p  <C-]>
+nnoremap <Leader>h  <C-W>h
+nnoremap <Leader>j  <C-W>j
+nnoremap <Leader>k  <C-W>k
+nnoremap <Leader>l  <C-W>l
+nnoremap <Leader>to :tabedit 
+
+" Closes NERDTree When Last
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd VimEnter * wincmd p
+
+" Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
+
+" File Searching Configuration
+set wildignore+=*node_modules*
+set conceallevel=1
+let g:indentLine_conceallevel=1
+let g:rainbow_active = 1

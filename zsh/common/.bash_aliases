@@ -7,6 +7,8 @@ alias l='ls -l'
 alias ll='ls -la'
 alias weather='curl wttr.in'
 alias showip='curl ifconfig.io'
+alias watch='watch '
+alias ctags="`brew --prefix`/bin/ctags"
 
 if hash > /dev/null kubectl
 then
