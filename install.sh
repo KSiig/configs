@@ -25,10 +25,10 @@ fi
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/KSiig/oh-my-zsh/master/tools/install.sh)"
-chsh -s $(which zsh)
+chsh -s /bin/zsh
 
-git clone https://github.com/KSiig/configs ~/configs
+if [[ ! -a $HOME/configs ]]; then git clone https://github.com/KSiig/configs ~/configs; fi
 find ~/ -maxdepth 1 -type f -name ".z*" -exec rm {} \;
 find ~/ -maxdepth 1 -type f -name ".bash_alias*" -exec rm {} \;
-ln -s ~/configs/zsh/common/.* ~/
+ln -s ~/configs/zsh/common/.* $HOME
 touch ~/.zcustom
