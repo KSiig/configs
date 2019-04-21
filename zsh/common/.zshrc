@@ -105,10 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate $HOME/.zshrc"
 # alias ohmyzsh="mate $HOME/.oh-my-zsh"
 alias .='source'
-if [ $HOME/.bash_aliases ]; then . $HOME/.bash_aliases; fi
-if [ $HOME/.zcustom ]; then . $HOME/.zcustom; fi
-if [ $HOME/.kubectl_aliases ]; then . $HOME/.kubectl_aliases; fi
+if [ -a $HOME/.bash_aliases ]; then . $HOME/.bash_aliases; fi
+if [ -a $HOME/.zcustom ]; then . $HOME/.zcustom; fi
+if [ -a $HOME/.kubectl_aliases ]; then . $HOME/.kubectl_aliases; fi
 
-
-eval $(thefuck --alias)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
