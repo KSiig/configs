@@ -70,7 +70,6 @@ set softtabstop=0 expandtab
 set shiftwidth=2 smarttab
 
 " Leader Configurations
-nnoremap <Leader>w  :w<CR>
 nnoremap <Leader>q  :q<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>f  :NERDTreeToggle<CR><C-W><C-L>
@@ -102,3 +101,6 @@ noremap <Right> <NOP>
 " 80 Charactor Color Column
 set textwidth=120
 set colorcolumn=+1
+
+" Saves on Enter in Normal mode
+nnoremap <silent><expr> <CR> empty(&buftype) ? ":w\<CR>" : "\<CR>"
