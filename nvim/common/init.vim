@@ -33,6 +33,8 @@ Plug 'luochen1990/rainbow'
 " Git Wrapper
 Plug 'tpope/vim-fugitive'
 
+" Disables h,j,k & l Including other keys
+Plug 'wikitopian/hardmode'
 call plug#end()
 
 " UI Configuration
@@ -92,3 +94,11 @@ set wildignore+=*node_modules*
 set conceallevel=1
 let g:indentLine_conceallevel=1
 let g:rainbow_active = 1
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" 80 Charactor Color Column
+set textwidth=120
+set colorcolumn=+1
