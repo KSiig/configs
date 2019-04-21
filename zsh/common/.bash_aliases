@@ -10,6 +10,7 @@ alias showip='curl ifconfig.io'
 alias watch='watch '
 
 if hash > /dev/null brew
+then
   alias ctags="`brew --prefix`/bin/ctags"
 fi
 
