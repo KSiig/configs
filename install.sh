@@ -1,8 +1,6 @@
-#!/bin/bash
-
 # Check what package manager is being used
-if hash apt >> /dev/null; then pk="apt"; fi
-if hash brew >> /dev/null; then pk="brew"; fi
+if hash apt &> /dev/null; then pk="apt"; fi
+if hash brew &> /dev/null; then pk="brew"; fi
 
 # The script will exit on error
 set -e
@@ -26,8 +24,8 @@ then
 fi
 
 # Install oh-my-zsh
-chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/KSiig/oh-my-zsh/master/tools/install.sh)"
+chsh -s $(which zsh)
 
 git clone https://github.com/KSiig/configs ~/configs
 find ~/ -maxdepth 1 -type f -name ".z*" -exec rm {} \;
