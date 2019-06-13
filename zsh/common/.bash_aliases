@@ -7,7 +7,7 @@ alias l='ls -l'
 alias ll='ls -la'
 alias weather='curl wttr.in'
 alias showip='curl ifconfig.io'
-alias watch='watch '
+alias watch='watch -n 0.5 '
 
 if hash brew &> /dev/null 
 then

@@ -2,6 +2,9 @@ set nocompatible
 " Plugin Configuration
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'fatih/vim-go'
+Plug 'ternjs/tern_for_vim'
+
 " Advanced File Explorer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -15,9 +18,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Set Dracula as theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Deoplete for Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'on': '<Plug>deoplete' }
-
 " Visualizes Tab Indents
 Plug 'Yggdroot/indentLine'
 
@@ -30,11 +30,21 @@ Plug 'jiangmiao/auto-pairs'
 " Rainbow Parenthases
 Plug 'luochen1990/rainbow'
 
-" Git Wrapper
-Plug 'tpope/vim-fugitive'
-
 " Disables h,j,k & l Including other keys
 Plug 'wikitopian/hardmode'
+
+" Autocompletion
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'davidhalter/jedi-vim'
+
+" Tags for python
+Plug 'majutsushi/tagbar'
+Plug 'w0rp/ale'
+let g:jedi#auto_vim_configuration = 0 
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=menuone
+
 call plug#end()
 
 " UI Configuration
@@ -78,10 +88,15 @@ nnoremap <Leader>h  <C-W>h
 nnoremap <Leader>j  <C-W>j
 nnoremap <Leader>k  <C-W>k
 nnoremap <Leader>l  <C-W>l
-nnoremap <Leader>to :tabedit 
+nnoremap <Leader>t  <C-T>
+nnoremap <Leader>o  <C-O>
+nnoremap <Leader>c  :ALEFix<CR>
 
 " Closes NERDTree When Last
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Enables Ncm2 Autocomplete
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -104,3 +119,15 @@ set colorcolumn=+1
 
 " Saves on Enter in Normal mode
 nnoremap <silent><expr> <CR> empty(&buftype) ? ":w\<CR>" : "\<CR>"
+
+" Remaps completion
+inoremap <C-space> <C-n>
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Code Fixers
+let g:ale_fixers = {
+\   'python': [
+\       'autopep8'
+\   ]
+\}
