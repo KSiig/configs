@@ -30,5 +30,5 @@ chsh -s /bin/zsh
 if [[ ! -a $HOME/configs ]]; then git clone https://github.com/KSiig/configs ~/configs; fi
 find ~/ -maxdepth 1 -type f -name ".z*" -exec rm {} \;
 find ~/ -maxdepth 1 -type f -name ".bash_alias*" -exec rm {} \;
-ln -s ~/configs/zsh/common/.* $HOME
+ln -s ~/configs/zsh/.* $HOME
 touch ~/.zcustom
